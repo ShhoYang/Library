@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="com.yl.yhbmfw">
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths"/>
+        </provider>
+
+        <!-- 友盟推送 -->
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="59ffdc94b27b0a60950001b4">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="84ef133204351a178d30c7ad8d0603a1">
+        </meta-data>
+        <!-- 友盟推送 -->
+
+        <service android:name=".service.DownApkService"/>
+
+        <!-- 欢迎页 -->
+        <activity
+            android:name=".mvp.activity.WelcomeActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.Welcome">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- 首页 -->
+        <activity
+            android:name=".mvp.activity.MainActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustUnspecified|stateHidden"/>
+        <!-- WebView详情 -->
+        <activity
+            android:name=".mvp.activity.WebViewActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 登录 -->
+        <activity
+            android:name=".mvp.activity.LoginActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 注册 -->
+        <activity
+            android:name=".mvp.activity.RegisterActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 修改密码 -->
+        <activity
+            android:name=".mvp.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 忘记密码 -->
+        <activity
+            android:name=".mvp.activity.ForgetPasswordActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 个人中心 -->
+        <activity
+            android:name=".mvp.activity.ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 设置 -->
+        <activity
+            android:name=".mvp.activity.SettingActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 关于 -->
+        <activity
+            android:name=".mvp.activity.AboutActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 我的事件 -->
+        <activity
+            android:name=".mvp.activity.EventActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 事件办理 -->
+        <activity
+            android:name=".mvp.activity.EventHandleActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"/>
+        <!-- 事件详情 -->
+        <activity
+            android:name=".mvp.activity.EventDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 实名认证 -->
+        <activity
+            android:name=".mvp.activity.AuthenticateActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 类型事件列表 -->
+        <activity
+            android:name=".mvp.activity.EventTypeItemListActivity"
+            android:screenOrientation="portrait"/>
+        <!-- 事件办理注意事项详情 -->
+        <activity
+            android:name=".mvp.activity.EventConditionActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.activity.SearchActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateVisible|stateVisible|adjustResize"/>
+        <activity
+            android:name=".mvp.activity.ReceiveAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.activity.AddReceiveAddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.activity.MessageDetailsActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".mvp.TestActivity"
+            android:screenOrientation="portrait"/>
+    </application>
+
+</manifest>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".mvp.activity.EventDetailsActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_m">
+
+        <TextView
+            android:id="@+id/tv_event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_xl"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_event_serial"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:textSize="@dimen/text_m"
+            tools:text="流水号"/>
+
+        <TextView
+            android:id="@+id/tv_submit_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:textSize="@dimen/text_m"
+            tools:text="提交时间"/>
+
+        <TextView
+            android:id="@+id/tv_access_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:textSize="@dimen/text_m"
+            tools:text="获取方式: 自提"/>
+
+        <TextView
+            android:id="@+id/tv_postal_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:textSize="@dimen/text_m"
+            android:visibility="gone"
+            tools:text="快递信息"/>
+
+        <TextView
+            android:id="@+id/tv_postal_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_s"
+            android:textSize="@dimen/text_m"
+            android:visibility="gone"
+            tools:text="快递单号"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xxl"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1"
+                android:background="@color/line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xxl"
+                android:layout_marginRight="@dimen/margin_xxl"
+                android:text="事件进度"
+                android:textColor="@color/dark_blue"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1"
+                android:background="@color/line"/>
+
+        </LinearLayout>
+
+        <com.yl.yhbmfw.widget.StepView
+            android:id="@+id/step"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:paddingTop="20dp"
+            app:v_bgPositionX="12dp"
+            app:v_bg_color="@color/light_green"
+            app:v_bg_radius="4dp"
+            app:v_bg_width="2dp"
+            app:v_interval="60dp"
+            app:v_pro_color="#cdcbcc"
+            app:v_pro_radius="4dp"
+            app:v_pro_width="2dp"
+            app:v_textMoveTop="8dp"
+            app:v_textsize="14sp"/>
+
+        <LinearLayout
+            android:id="@+id/ll_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_xxl"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1"
+                android:background="@color/line"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_xxl"
+                android:layout_marginRight="@dimen/margin_xxl"
+                android:text="事件材料"
+                android:textColor="@color/dark_blue"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1"
+                android:background="@color/line"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_material"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_m"
+            android:overScrollMode="never"/>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

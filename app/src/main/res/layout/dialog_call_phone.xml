@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_consult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_m">
+
+        <TextView
+            android:id="@+id/tv_consult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_m"/>
+
+
+        <ImageView
+            android:id="@+id/iv_consult"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/call_phone"/>
+
+    </RelativeLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_complaint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="@dimen/margin_m">
+
+        <TextView
+            android:id="@+id/tv_complaint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_m"/>
+
+        <ImageView
+            android:id="@+id/iv_complaint"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/call_phone"/>
+    </RelativeLayout>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <TextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:gravity="center"
+        android:padding="@dimen/margin_m"
+        android:text="取消"
+        android:textSize="@dimen/text_m"/>
+
+</LinearLayout>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="6dp"
+                android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_m"
+        android:text="杨世豪"
+        android:textSize="@dimen/text_m"/>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="@dimen/margin_m"
+        android:text="15137174714"
+        android:textSize="@dimen/text_m"/>
+
+    <TextView
+        android:id="@+id/tv_addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_marginLeft="@dimen/margin_m"
+        android:layout_marginRight="@dimen/margin_m"
+        android:text="浙江省杭州市西湖区蒋村街道西溪谷国际商务中心"
+        android:textSize="@dimen/text_m"/>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_addr"
+        android:layout_marginTop="@dimen/margin_m"
+        android:background="@color/line"/>
+
+    <LinearLayout
+        android:id="@+id/ll_default"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/line"
+        android:layout_marginLeft="@dimen/margin_m"
+        android:button="@drawable/selector_icon_check"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:text="默认地址"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/text_s">
+
+        <ImageView
+            android:id="@+id/iv_default"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:src="@drawable/selector_icon_check"/>
+
+        <TextView
+            android:id="@+id/tv_default"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="默认地址"
+            android:textColor="@drawable/selector_color_tab"
+            android:textSize="@dimen/text_s"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/line"
+        android:layout_marginRight="@dimen/margin_m"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/delete_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="删除"
+            android:textSize="@dimen/text_s"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_below="@+id/line"
+        android:layout_marginRight="@dimen/margin_m"
+        android:layout_toLeftOf="@+id/ll_delete"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/edit"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:text="编辑"
+            android:textSize="@dimen/text_s"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

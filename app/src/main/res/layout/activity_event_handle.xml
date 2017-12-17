@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".mvp.activity.AboutActivity">
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="@dimen/margin_m">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提醒:"
+                    android:textSize="@dimen/text_m"/>
+
+                <TextView
+                    android:id="@+id/tv_remind"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_m"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textSize="@dimen/text_m"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+            <LinearLayout
+                android:id="@+id/ll_obtain_mode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_m"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="获取方式"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_m"/>
+
+                <RadioGroup
+                    android:id="@+id/rg_obtain_mode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/margin_xxl"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_express"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_xxl"
+                        android:checked="true"
+                        android:text="快递"
+                        android:textColor="@color/gray"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_self"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自提"
+                        android:textColor="@color/gray"/>
+
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_rec_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_m"
+                    android:text="收货地址"
+                    android:textColor="@color/dark_gray"
+                    android:textSize="@dimen/text_m"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/tv_"
+                    android:layout_marginTop="@dimen/margin_m"
+                    android:layout_toRightOf="@+id/tv_"
+                    android:text="(默认地址,点击可修改)"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/text_s"/>
+
+                <TextView
+                    android:id="@+id/tv_set_rec_address"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/tv_"
+                    android:gravity="center_vertical"
+                    android:text="@string/set_rec_addr"
+                    android:textColor="@color/orange"
+                    android:textSize="@dimen/text_l"
+                    android:visibility="gone"/>
+
+                <RelativeLayout
+                    android:id="@+id/rl_rec_address_info"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_"
+                    android:layout_marginTop="@dimen/margin_m"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:id="@+id/tv_rec_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="杨世豪"
+                        android:textSize="@dimen/text_m"/>
+
+                    <TextView
+                        android:id="@+id/tv_rec_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/margin_xxl"
+                        android:layout_toRightOf="@+id/tv_rec_name"
+                        android:text="15137174714"
+                        android:textSize="@dimen/text_m"/>
+
+                    <TextView
+                        android:id="@+id/tv_rec_address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_rec_name"
+                        android:layout_marginTop="@dimen/margin_s"
+                        android:text="浙江省杭州市西湖区蒋村街道西溪谷国际商务中心"
+                        android:textSize="@dimen/text_m"/>
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_bg_btn2"
+        android:text="提交"
+        android:textColor="@color/white"/>
+
+</LinearLayout>

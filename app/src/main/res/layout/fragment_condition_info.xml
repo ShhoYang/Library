@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_m"
+            android:textColor="@color/dark_gray"
+            android:textSize="@dimen/text_l"
+            android:textStyle="bold"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_cost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="收费情况"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_time_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="承诺期限"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_legal_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="法定期限"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_object"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="办理对象"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_depart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="指导部门"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="受理地点"
+            app:text_right_gravity="left"
+            app:text_right_single_line="false"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_m"
+            android:text="受理时间"
+            android:textColor="@color/left"
+            android:textSize="@dimen/text_m"/>
+
+        <TextView
+            android:id="@+id/tv_handle_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_m"
+            android:layout_marginLeft="@dimen/margin_m"
+            android:layout_marginRight="@dimen/margin_m"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="@dimen/text_m"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_m"
+            android:text="事项说明"
+            android:textColor="@color/left"
+            android:textSize="@dimen/text_m"/>
+
+        <TextView
+            android:id="@+id/tv_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_m"
+            android:layout_marginLeft="@dimen/margin_m"
+            android:layout_marginRight="@dimen/margin_m"
+            android:lineSpacingMultiplier="1.2"
+            android:textSize="@dimen/text_m"/>
+    </LinearLayout>
+
+</ScrollView>

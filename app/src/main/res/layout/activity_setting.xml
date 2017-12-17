@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.yl.library.widget.TextViewGroup
+        android:id="@+id/tv_change_pwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:text_left="修改密码"/>
+
+    <include layout="@layout/line_gray_8dp"/>
+
+    <com.yl.library.widget.TextViewGroup
+        android:id="@+id/tv_clear_cache"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:arrow_show="false"
+        app:text_left="清除缓存"/>
+
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <com.yl.library.widget.TextViewGroup
+        android:id="@+id/tv_version"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:arrow_show="false"
+        app:text_left="检查新版本"/>
+
+    <include layout="@layout/line_gray_1dp"/>
+
+    <Button
+        android:id="@+id/btn_exit"
+        style="@style/Button"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="退出登录"/>
+
+</LinearLayout>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="text" format="string"/>
+    <attr name="text_left" format="string"/>
+    <attr name="text_right" format="string"/>
+    <attr name="text_hint" format="string"/>
+    <attr name="text_size" format="dimension"/>
+    <attr name="text_color" format="color"/>
+    <attr name="icon" format="reference"/>
+
+    <declare-styleable name="TabView">
+        <attr name="tab_selected" format="boolean"/>
+        <attr name="tab_text" format="string"/>
+        <attr name="tab_icon" format="reference"/>
+        <attr name="tab_color" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClearEditView">
+        <attr name="text_size"/>
+        <attr name="text_color"/>
+        <attr name="text_hint"/>
+    </declare-styleable>
+
+    <declare-styleable name="ClearEditViewSingle">
+        <attr name="text_size"/>
+        <attr name="text_color"/>
+        <attr name="text_hint"/>
+        <attr name="icon"/>
+        <attr name="max_length" format="integer"/>
+        <attr name="input_type">
+            <enum name="text" value="1"/>
+            <enum name="number" value="2"/>
+            <enum name="password" value="128"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="TextViewGroup">
+        <attr name="text_left"/>
+        <attr name="text_right"/>
+        <attr name="text_color_left" format="color"/>
+        <attr name="text_color_right" format="color"/>
+        <attr name="text_right_single_line" format="boolean"/>
+        <attr name="img_left" format="reference"/>
+        <attr name="arrow_show" format="boolean"/>
+        <attr name="btn_show" format="boolean"/>
+        <attr name="btn_switch" format="boolean"/>
+        <attr name="text_right_gravity">
+            <enum name="left" value="3"/>
+            <enum name="right" value="5"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="EditTextGroup">
+        <attr name="text_left"/>
+        <attr name="text_right"/>
+        <attr name="text_hint"/>
+    </declare-styleable>
+
+    <declare-styleable name="AVLoadingIndicatorView">
+        <attr name="minWidth" format="dimension"/>
+        <attr name="maxWidth" format="dimension"/>
+        <attr name="minHeight" format="dimension"/>
+        <attr name="maxHeight" format="dimension"/>
+        <attr name="indicator_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="RatioImageView">
+        <attr name="height_width" format="float"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquareRelativityLayout">
+        <attr name="spec">
+            <enum name="h_w" value="1"/>
+            <enum name="w_h" value="2"/>
+        </attr>
+    </declare-styleable>
+
+</resources>

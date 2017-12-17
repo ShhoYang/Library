@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_login"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_padding"
+    tools:context=".mvp.activity.LoginActivity">
+
+    <com.yl.library.widget.ClearEditViewSingle
+        android:id="@+id/et_phone"
+        style="@style/Phone"/>
+
+    <com.yl.library.widget.ClearEditViewSingle
+        android:id="@+id/et_pwd"
+        style="@style/Password"
+        app:text_hint="密码(6-16位数字或大小写字母)"/>
+
+    <Button
+        android:id="@+id/btn_login"
+        style="@style/Button"
+        android:text="登录"/>
+
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:text="手机号注册"
+        android:textColor="@color/blue"/>
+
+</LinearLayout>

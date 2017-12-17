@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?android:attr/selectableItemBackground"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/margin_m"
+                android:paddingLeft="@dimen/margin_m"
+                android:paddingRight="@dimen/margin_m"
+                android:paddingTop="@dimen/margin_s">
+
+    <TextView
+        android:id="@+id/tv_read"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/margin_s"
+        android:background="@drawable/shape_oval_red"/>
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginLeft="@dimen/margin_s"
+        android:layout_marginRight="@dimen/margin_m"
+        android:layout_toLeftOf="@+id/tv_read"
+        android:textColor="@color/gray"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_time"
+        android:textSize="@dimen/text_m"
+        android:textStyle="bold"
+        tools:text="标题标题标题"/>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_title"
+        android:layout_marginLeft="@dimen/margin_m"
+        android:layout_marginTop="4dp"
+        android:lineSpacingMultiplier="1.1"
+        android:textColor="@color/gray"
+        android:textSize="14sp"
+        tools:text="内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容"/>
+
+</RelativeLayout>

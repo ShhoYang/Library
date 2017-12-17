@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="12dp"
+    android:paddingTop="12dp">
+
+    <ImageView
+        android:id="@+id/vg_iv_left"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_m"
+        android:visibility="gone"/>
+
+    <TextView
+        android:id="@+id/vg_tv_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/margin_m"
+        android:layout_toRightOf="@+id/vg_iv_left"
+        android:singleLine="true"
+        android:textColor="@color/left"
+        android:textSize="@dimen/text_m"/>
+
+    <ImageView
+        android:id="@+id/vg_iv_arrow"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_s"
+        android:src="@drawable/arrow_right"/>
+
+    <TextView
+        android:id="@+id/vg_tv_right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="@dimen/margin_m"
+        android:layout_toLeftOf="@id/vg_iv_arrow"
+        android:layout_toRightOf="@id/vg_tv_left"
+        android:gravity="right"
+        android:textColor="@color/right"
+        android:textSize="@dimen/text_m"/>
+
+    <com.suke.widget.SwitchButton
+        android:id="@+id/vg_btn_switch"
+        android:layout_width="44dp"
+        android:layout_height="28dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/margin_m"
+        app:sb_checked="true"
+        app:sb_show_indicator="false"/>
+
+
+</RelativeLayout>

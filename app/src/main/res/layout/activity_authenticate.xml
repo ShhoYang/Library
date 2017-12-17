@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/margin_m"
+    android:scrollbars="none"
+    tools:context="com.yl.yhbmfw.mvp.activity.AuthenticateActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_m">
+
+            <ImageView
+                android:id="@+id/iv_head"
+                android:layout_width="85dp"
+                android:layout_height="119dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="@dimen/margin_m"
+                android:scaleType="fitXY"
+                android:src="@drawable/add"/>
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/iv_head"
+                android:hint="姓名"
+                android:singleLine="true"
+                android:textColor="@drawable/selector_color_edit_text"
+                android:textSize="40sp"
+                android:textStyle="bold"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_name"
+                android:background="@drawable/shape_round_orange"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="4dp">
+
+                <ImageView
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+
+                    android:src="@drawable/authenticate"/>
+
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
+                    android:text="未认证"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_s"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_sex"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:arrow_show="false"
+            app:text_left="性别"
+            app:text_right="男"
+            app:text_right_gravity="left"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.EditTextGroup
+            android:id="@+id/et_id_card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:text_left="身份证号"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <com.yl.library.widget.TextViewGroup
+            android:id="@+id/tv_addr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:arrow_show="false"
+            app:text_left="社区/村"
+            app:text_right_gravity="left"/>
+
+        <include layout="@layout/line_gray_1dp"/>
+
+        <TextView
+            android:id="@+id/tv_fail_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_l"
+            android:textColor="@color/red"
+            android:textSize="@dimen/text_m"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/iv_id_card_front"
+            android:layout_width="240dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="@dimen/margin_l"
+            android:scaleType="fitXY"
+            android:src="@drawable/idcaid_front"/>
+
+        <ImageView
+            android:id="@+id/iv_id_card_after"
+            android:layout_width="240dp"
+            android:layout_height="160dp"
+            android:layout_marginTop="@dimen/margin_l"
+            android:scaleType="fitXY"
+            android:src="@drawable/idcard_after"/>
+
+    </LinearLayout>
+
+</ScrollView>
