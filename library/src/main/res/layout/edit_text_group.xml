@@ -22,7 +22,7 @@
         android:layout_marginLeft="@dimen/margin_m"
         android:layout_marginTop="12dp"
         android:layout_toRightOf="@id/vg_iv_left"
-        android:maxWidth="64sp"
+        android:maxWidth="72sp"
         android:textColor="@color/left"
         android:textSize="@dimen/text_m"/>
 

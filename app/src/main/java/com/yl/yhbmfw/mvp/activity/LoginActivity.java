@@ -5,7 +5,7 @@ import android.content.Intent;
 import com.yl.library.base.activity.BaseActivity;
 import com.yl.library.utils.AppManager;
 import com.yl.library.widget.ClearEditViewSingle;
-import com.yl.library.widget.MenuPopupWindow;
+import com.yl.yhbmfw.Constant;
 import com.yl.yhbmfw.R;
 import com.yl.yhbmfw.mvp.contract.LoginContract;
 import com.yl.yhbmfw.mvp.presenter.LoginPresenter;
@@ -20,6 +20,8 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter>
     ClearEditViewSingle mEtPhone;
     @BindView(R.id.et_pwd)
     ClearEditViewSingle mEtPwd;
+
+    private boolean mIsCloseMainActivity = false;
 
     @Override
     protected void onResume() {
@@ -44,7 +46,13 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter>
 
     @Override
     protected void initData() {
-        AppManager.getInstance().finishAllActivityExceptAppoint(LoginActivity.class);
+        Intent intent = getIntent();
+        if (intent != null) {
+            mIsCloseMainActivity = intent.getBooleanExtra(Constant.KEY_BOOLEAN_1, false);
+            if (mIsCloseMainActivity) {
+                AppManager.getInstance().finishAllActivityExceptAppoint(LoginActivity.class);
+            }
+        }
     }
 
     @OnClick(R.id.btn_login)
@@ -83,7 +91,10 @@ public class LoginActivity extends BaseActivity<LoginContract.Presenter>
 
     @Override
     protected void onImageViewLeftClicked() {
-        startActivity(new Intent(this, MainActivity.class));
-        super.onImageViewLeftClicked();
+        if (mIsCloseMainActivity) {
+            startActivity(new Intent(this, MainActivity.class));
+        } else {
+            super.onImageViewLeftClicked();
+        }
     }
 }

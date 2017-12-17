@@ -77,7 +77,7 @@ public class EditTextGroup extends RelativeLayout {
         return mEtRight;
     }
 
-    public void setEnableEidt(boolean enable) {
+    public void setEnableEdit(boolean enable) {
         mEtRight.setEnabled(enable);
     }
 }

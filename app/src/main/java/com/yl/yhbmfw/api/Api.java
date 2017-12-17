@@ -32,8 +32,18 @@ import okhttp3.RequestBody;
  */
 public class Api {
 
-    private static final ApiService API_SERVICE = RetrofitUtils.getInstance().getRetrofit().create(ApiService.class);
-    //private static final ApiService API_SERVICE = RetrofitUtils.getInstance().getProxy(ApiService.class, new MyProxyHandler());
+    //private static final ApiService API_SERVICE = RetrofitUtils.getInstance().getRetrofit().create(ApiService.class);
+    private static final ApiService API_SERVICE = RetrofitUtils.getInstance().getProxy(ApiService.class, new MyProxyHandler());
+
+    private static String getToken() {
+        return App.getInstance().getConfig().getToken();
+    }
+
+    private static MultipartBody.Part createMultipartBody(String key, String filePath) {
+        File file = new File(filePath);
+        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
+        return MultipartBody.Part.createFormData(key, file.getName(), requestBody);
+    }
 
     /**
      * 获取验证码
@@ -317,15 +327,5 @@ public class Api {
      */
     public static Observable<VersionInfo> checkApkVersion() {
         return API_SERVICE.checkApkVersion().compose(RxSchedulers.<VersionInfo>io_main());
-    }
-
-    private static String getToken() {
-        return App.getInstance().getConfig().getToken();
-    }
-
-    private static MultipartBody.Part createMultipartBody(String key, String filePath) {
-        File file = new File(filePath);
-        RequestBody requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file);
-        return MultipartBody.Part.createFormData(key, file.getName(), requestBody);
     }
 }

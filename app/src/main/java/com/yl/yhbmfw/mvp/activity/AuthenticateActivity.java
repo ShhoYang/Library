@@ -213,7 +213,7 @@ public class AuthenticateActivity extends BaseActivity<AuthenticateContract.Pres
     @Override
     public void setEnableEdit(boolean enable) {
         mEtName.setEnabled(enable);
-        mEtIdCard.setEnableEidt(enable);
+        mEtIdCard.setEnableEdit(enable);
         mTvSex.setFocusable(enable);
         mTvSex.setClickable(enable);
         mIvHead.setEnabled(enable);

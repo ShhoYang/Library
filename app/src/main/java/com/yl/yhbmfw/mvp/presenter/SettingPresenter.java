@@ -3,8 +3,8 @@ package com.yl.yhbmfw.mvp.presenter;
 
 import android.content.Intent;
 
+import com.yl.library.Library;
 import com.yl.library.rx.HttpCode;
-import com.yl.library.rx.RetrofitUtils;
 import com.yl.library.rx.RxSchedulers;
 import com.yl.library.rx.RxSubscriber;
 import com.yl.library.utils.AppUtils;
@@ -125,9 +125,11 @@ public class SettingPresenter extends SettingContract.Presenter {
 
             @Override
             protected void _onError(String code) {
-                RetrofitUtils.getInstance().cookieClear();
+                Library.getInstance().cookieClear();
                 App.getInstance().getConfig().exit();
-                mView.gotoActivityAndFinish(new Intent(mContext, LoginActivity.class));
+                Intent intent = new Intent(mContext, LoginActivity.class);
+                intent.putExtra(Constant.KEY_BOOLEAN_1, true);
+                mView.gotoActivityAndFinish(intent);
             }
         });
     }
