@@ -4,7 +4,9 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -134,15 +136,16 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
         }
     }
 
-    public <T extends View> T $(@IdRes int resId) {
+    protected <T extends View> T $(@IdRes int resId) {
         return (T) super.findViewById(resId);
     }
 
-    public <T extends View> T $(View layoutView, @IdRes int resId) {
+    protected <T extends View> T $(View layoutView, @IdRes int resId) {
         return (T) layoutView.findViewById(resId);
     }
 
-    protected abstract int getLayoutId();
+    protected abstract @LayoutRes
+    int getLayoutId();
 
     protected abstract void initMVP();
 
@@ -185,7 +188,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
     /**
      * 左边的图片------------------------------------------------------------------------------------
      */
-    protected void setImageLeft(int resourceId) {
+    protected void setImageLeft(@DrawableRes int resourceId) {
         if (mIvLeft == null) {
             return;
         }
@@ -196,7 +199,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
         if (mIvLeft == null) {
             return;
         }
-        mIvLeft.setVisibility(visibility);
+        mIvLeft.setVisibility(View.GONE);
     }
 
     protected void onImageViewLeftClicked() {
@@ -229,7 +232,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
     /**
      * 右边的图片------------------------------------------------------------------------------------
      */
-    protected void setImageRight(int resourceId) {
+    protected void setImageRight(@DrawableRes int resourceId) {
         if (mIvRight == null) {
             return;
         }

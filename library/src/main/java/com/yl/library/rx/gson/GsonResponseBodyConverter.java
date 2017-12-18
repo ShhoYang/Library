@@ -33,11 +33,7 @@ final class GsonResponseBodyConverter<T> implements Converter<ResponseBody, Obje
             int code = jsonObject.optInt("code");
             if (code == 0) {
                 HttpResult h = (HttpResult) adapter.fromJson(json);
-                if (h.getData() == null) {
-                    throw new ApiException(HttpCode.CODE_30002.getCode());
-                } else {
-                    return h.getData();
-                }
+                return h.getData();
             } else if (code == 20005) {
                 throw new TokenInvalidException();
             } else {

@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
@@ -73,7 +74,8 @@ public abstract class BaseFragment<P extends APresenter> extends Fragment {
         return (T) layoutView.findViewById(resId);
     }
 
-    protected abstract int getLayoutId();
+    protected abstract @LayoutRes
+    int getLayoutId();
 
     protected abstract void initMVP();
 

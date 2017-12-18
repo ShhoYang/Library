@@ -40,10 +40,10 @@ public abstract class RxSubscriber<D> {
                 if (view != null) {
                     view.dismissDialog();
                 }
-                if (d != null) {
-                    _onNext(d);
+                if (d == null) {
+                    _onNull();
                 } else {
-                    _onError(HttpCode.CODE_30002.getCode());
+                    _onNext(d);
                 }
             }
         }, new Consumer<Throwable>() {
@@ -75,5 +75,9 @@ public abstract class RxSubscriber<D> {
 
     protected void _onError(String code) {
         T.showShort(Library.getInstance().getContext(), HttpCode.getMsg(code));
+    }
+
+    protected void _onNull() {
+
     }
 }

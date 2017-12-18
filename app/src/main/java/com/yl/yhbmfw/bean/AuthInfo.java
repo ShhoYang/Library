@@ -1,5 +1,6 @@
 package com.yl.yhbmfw.bean;
 
+
 import java.io.Serializable;
 
 /**
@@ -104,19 +105,19 @@ public class AuthInfo implements Serializable {
         return "";
     }
 
-    public boolean authPass(){
+    public boolean authPass() {
         return AUTH_PASS.equals(status);
     }
 
-    public boolean authing(){
+    public boolean authing() {
         return AUTH_ING.equals(status);
     }
 
-    public boolean authFail(){
+    public boolean authFail() {
         return AUTH_FAIL.equals(status);
     }
 
-    public boolean noSubmit(){
-       return AUTH_NO_SUBMIT.equals(status);
+    public boolean noSubmit() {
+        return AUTH_NO_SUBMIT.equals(status);
     }
 }

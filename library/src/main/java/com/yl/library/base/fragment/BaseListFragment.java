@@ -20,6 +20,7 @@ import com.yl.library.R;
 import com.yl.library.base.mvp.AListPresenter;
 import com.yl.library.utils.DisplayUtils;
 import com.zhy.adapter.recyclerview.CommonAdapter;
+import com.zhy.adapter.recyclerview.MultiItemTypeAdapter;
 import com.zhy.adapter.recyclerview.wrapper.EmptyWrapper;
 
 /**
@@ -36,8 +37,8 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
     protected LinearLayout mEmptyView;
     protected ImageView mIvEmpty;
     public TextView mTvEmptyView;
-    protected EmptyWrapper mEmptyWrapper;
-    protected CommonAdapter mAdapter;
+    protected EmptyWrapper mAdapter;
+    protected MultiItemTypeAdapter mMultiItemTypeAdapter;
     protected boolean mIsRefresh = false;
     private String mNoDataText = "暂无数据";
     private String mLoadErrorText = "加载失败";
@@ -75,13 +76,13 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
         mRecyclerView = (RecyclerView) $(R.id.rv);
         mRecyclerView.setFocusable(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
-        mAdapter = getAdapter();
-        mEmptyWrapper = new EmptyWrapper(mAdapter);
+        mMultiItemTypeAdapter = getAdapter();
+        mAdapter = new EmptyWrapper(mMultiItemTypeAdapter);
         mEmptyView = (LinearLayout) LayoutInflater.from(mActivity).inflate(R.layout.view_empty, mRecyclerView, false);
         mTvEmptyView = (TextView) $(mEmptyView,R.id.tv_empty);
         mIvEmpty = mEmptyView.findViewById(R.id.iv_empty);
-        mEmptyWrapper.setEmptyView(mEmptyView);
-        mRecyclerView.setAdapter(mEmptyWrapper);
+        mAdapter.setEmptyView(mEmptyView);
+        mRecyclerView.setAdapter(mAdapter);
         mRefreshLayout.setOnRefreshListener(this);
         mRefreshLayout.setOnLoadmoreListener(this);
     }
@@ -191,7 +192,7 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
     public void updateList() {
         mRefreshLayout.finishRefresh(0);
         mRefreshLayout.finishLoadmore(0, true);
-        mEmptyWrapper.notifyDataSetChanged();
+        mAdapter.notifyDataSetChanged();
     }
 
     public void noMoreData() {
