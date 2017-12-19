@@ -65,7 +65,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="2dp"
             android:text="默认地址"
-            android:textColor="@drawable/selector_color_tab"
+            android:textColor="@color/selector_color_tab"
             android:textSize="@dimen/text_s"/>
     </LinearLayout>
 

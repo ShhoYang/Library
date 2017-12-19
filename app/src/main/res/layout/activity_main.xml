@@ -28,7 +28,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:tab_color="@drawable/selector_color_tab"
+            app:tab_color="@color/selector_color_tab"
             app:tab_icon="@drawable/selector_icon_main"
             app:tab_selected="true"
             app:tab_text="首页"/>
@@ -38,7 +38,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:tab_color="@drawable/selector_color_tab"
+            app:tab_color="@color/selector_color_tab"
             app:tab_icon="@drawable/selector_icon_msg"
             app:tab_text="消息"/>
 
@@ -47,7 +47,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:tab_color="@drawable/selector_color_tab"
+            app:tab_color="@color/selector_color_tab"
             app:tab_icon="@drawable/selector_icon_my"
             app:tab_text="我的"/>
 

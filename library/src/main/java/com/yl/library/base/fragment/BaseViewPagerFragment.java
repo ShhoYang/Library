@@ -92,10 +92,15 @@ public abstract class BaseViewPagerFragment<P extends APresenter> extends BaseFr
         if (titles == null || fragments == null) {
             return;
         }
+
         int fragmentSize = fragments.size();
         int titleSize = titles.size();
         if (fragmentSize == 0 || titleSize == 0 || fragmentSize != titleSize) {
             return;
+        }
+
+        if (mLlEmpty != null) {
+            mLlEmpty.setVerticalGravity(View.GONE);
         }
         mViewPager.setAdapter(new FragmentWithTitleAdapter(getChildFragmentManager(), titles, fragments));
         if (fragmentSize == 1) {

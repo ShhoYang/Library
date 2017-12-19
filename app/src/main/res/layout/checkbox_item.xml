@@ -10,5 +10,5 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="4dp"
-    android:textColor="@drawable/selector_color_check_box"
+    android:textColor="@color/selector_color_check_box"
     android:textSize="@dimen/text_s"/>
