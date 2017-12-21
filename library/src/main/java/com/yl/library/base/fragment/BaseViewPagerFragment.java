@@ -29,6 +29,14 @@ public abstract class BaseViewPagerFragment<P extends APresenter> extends BaseFr
     protected P mPresenter;
 
     @Override
+    public void onStop() {
+        super.onStop();
+        if (mPresenter != null) {
+            mPresenter.onStop();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         if (mPresenter != null) {
             mPresenter.onDestroy();
@@ -48,11 +56,11 @@ public abstract class BaseViewPagerFragment<P extends APresenter> extends BaseFr
         if (mPresenter != null) {
             mPresenter.mContext = mActivity;
         }
-        mTabLayout = (TabLayout) $(R.id.tab);
-        mViewPager = (ViewPager) $(R.id.vp);
-        mLlEmpty = (LinearLayout) $(R.id.ll_empty);
-        ImageView ivEmpty = (ImageView) $(R.id.iv_empty);
-        TextView tvEmpty = (TextView) $(R.id.tv_empty);
+        mTabLayout = (TabLayout) $(R.id.base_tab_layout);
+        mViewPager = (ViewPager) $(R.id.base_view_pager);
+        mLlEmpty = (LinearLayout) $(R.id.base_vp_ll_empty);
+        ImageView ivEmpty = (ImageView) $(R.id.base_vp_iv_empty);
+        TextView tvEmpty = (TextView) $(R.id.base_vp_tv_empty);
         if (ivEmpty != null) {
             ivEmpty.setOnClickListener(this);
         }
@@ -78,12 +86,14 @@ public abstract class BaseViewPagerFragment<P extends APresenter> extends BaseFr
 
     }
 
-
     protected void setPageLimit(int limit) {
         mViewPager.setOffscreenPageLimit(limit);
     }
 
     public void setViewPagerData(String[] titles, Fragment[] fragments) {
+        if (titles == null || fragments == null) {
+            return;
+        }
         setViewPagerData(Arrays.asList(titles), Arrays.asList(fragments));
     }
 
@@ -100,7 +110,7 @@ public abstract class BaseViewPagerFragment<P extends APresenter> extends BaseFr
         }
 
         if (mLlEmpty != null) {
-            mLlEmpty.setVerticalGravity(View.GONE);
+            mLlEmpty.setVisibility(View.GONE);
         }
         mViewPager.setAdapter(new FragmentWithTitleAdapter(getChildFragmentManager(), titles, fragments));
         if (fragmentSize == 1) {

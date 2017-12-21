@@ -78,7 +78,7 @@ public class AddReceiveAddressPresenter extends AddReceiveAddressContract.Presen
         mView.setStreet(mRecAddress.getTown());
         mView.setDetailsAddress(mRecAddress.getFull_addr());
         mView.isDefault(mRecAddress.isDefault());
-        mRxManager.add(new RxSubscriber<List<RegionNode>>(Api.getRegion(null)) {
+        addRx2Destroy(new RxSubscriber<List<RegionNode>>(Api.getRegion(null)) {
 
             @Override
             protected void _onNext(List<RegionNode> regionNodes) {
@@ -139,7 +139,7 @@ public class AddReceiveAddressPresenter extends AddReceiveAddressContract.Presen
     public void getAreaList() {
         if (mProvinceList.size() == 0) {
             mView.showDialog();
-            mRxManager.add(new RxSubscriber<List<RegionNode>>(Api.getRegion(null)) {
+            addRx2Destroy(new RxSubscriber<List<RegionNode>>(Api.getRegion(null)) {
                 @Override
                 protected void _onNext(List<RegionNode> regionNodes) {
                     arrangeRegionData(regionNodes, null);
@@ -222,7 +222,7 @@ public class AddReceiveAddressPresenter extends AddReceiveAddressContract.Presen
 
         mView.showDialog("正在保存...");
         if (mRecAddress != null && !TextUtils.isEmpty(mRecAddress.getId())) {
-            mRxManager.add(new RxSubscriber(Api.editRecAddress(mRecAddress.getId(), mSelectedProvince.getText(), mSelectedCity.getText(), mSelectedDistrict.getText(),
+            addRx2Destroy(new RxSubscriber(Api.editRecAddress(mRecAddress.getId(), mSelectedProvince.getText(), mSelectedCity.getText(), mSelectedDistrict.getText(),
                     mSelectedStreet.getText(), detailsAddress, name, phone, mView.isDefault() ? "1" : "0"), mView) {
                 @Override
                 protected void _onNext(Object o) {
@@ -232,7 +232,7 @@ public class AddReceiveAddressPresenter extends AddReceiveAddressContract.Presen
                 }
             });
         } else {
-            mRxManager.add(new RxSubscriber(Api.addRecAddress(mSelectedProvince.getText(), mSelectedCity.getText(),
+            addRx2Destroy(new RxSubscriber(Api.addRecAddress(mSelectedProvince.getText(), mSelectedCity.getText(),
                     mSelectedDistrict.getText(), mSelectedStreet.getText(), detailsAddress,
                     name, phone, mView.isDefault() ? "1" : "0"), mView) {
                 @Override

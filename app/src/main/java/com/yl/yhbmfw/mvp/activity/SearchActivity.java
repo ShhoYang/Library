@@ -30,7 +30,7 @@ public class SearchActivity extends BaseActivity<SearchContract.Presenter>
     private EventTypeItemAdapter mAdapter;
 
     @Override
-    protected boolean showActionBar() {
+    protected boolean hasActionBar() {
         return false;
     }
 

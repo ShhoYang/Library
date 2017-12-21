@@ -46,7 +46,7 @@ public class RegisterPresenter extends RegisterContract.Presenter {
         mView.setBtnCodeEnable(false);
         startTimer();
         mView.showDialog("正在获取验证码...");
-        mRxManager.add(new RxSubscriber<String>(Api.getSMSCode(phone, AppUtils.getIMEI(mContext, phone)), mView) {
+        addRx2Destroy(new RxSubscriber<String>(Api.getSMSCode(phone, AppUtils.getIMEI(mContext, phone)), mView) {
 
             @Override
             protected void _onNext(String s) {
@@ -84,7 +84,7 @@ public class RegisterPresenter extends RegisterContract.Presenter {
             return;
         }
         mView.showDialog("正在注册...");
-        mRxManager.add(new RxSubscriber<String>(Api.register(code, pwd), mView) {
+        addRx2Destroy(new RxSubscriber<String>(Api.register(code, pwd), mView) {
 
             @Override
             protected void _onNext(String s) {
@@ -126,7 +126,7 @@ public class RegisterPresenter extends RegisterContract.Presenter {
 
                     }
                 });
-        mRxManager.add(mTimer);
+        addRx2Destroy(mTimer);
     }
 
     private void closeTimer() {

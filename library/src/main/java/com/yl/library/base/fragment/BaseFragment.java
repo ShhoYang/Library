@@ -47,12 +47,21 @@ public abstract class BaseFragment<P extends APresenter> extends Fragment {
     }
 
     @Override
-    public void onDestroyView() {
-        super.onDestroyView();
+    public void onStop() {
+        super.onStop();
         if (mDialog != null) {
             mDialog.dismiss();
             mDialog = null;
         }
+        if (mPresenter != null) {
+            mPresenter.onStop();
+        }
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
         if (mPresenter != null) {
             mPresenter.onDestroy();
             mPresenter = null;

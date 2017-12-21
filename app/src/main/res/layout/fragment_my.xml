@@ -5,8 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimaryDark"
-    app:srlEnableLoadmore="false"
-    android:id="@id/refresh"
     app:srlEnablePureScrollMode="true">
 
     <ScrollView

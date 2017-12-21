@@ -76,7 +76,7 @@ public class EventConditionPresenter extends EventConditionContract.Presenter {
         if (!mConfig.isLogin()) {
             return;
         }
-        mRxManager.add(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
+        addRx2Destroy(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
             @Override
             protected void _onNext(AuthInfo authInfo) {
                 mAuthInfo = authInfo;

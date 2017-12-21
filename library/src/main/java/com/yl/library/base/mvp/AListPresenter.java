@@ -1,8 +1,6 @@
 package com.yl.library.base.mvp;
 
-import android.app.Activity;
-
-import com.yl.library.rx.RxManager;
+import android.view.View;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,28 +8,22 @@ import java.util.List;
 /**
  * @author Yang Shihao
  */
-public abstract class AListPresenter<V extends IListView, D> {
+public abstract class AListPresenter<V extends IListView, D> extends BasePresenter {
 
     private static final int PAGE_SIZE = 20;
 
-    public Activity mContext;
     protected V mView;
-    protected RxManager mRxManager;
     protected List<D> mDataList = new ArrayList<>();
     protected int mPage = 1;
     protected boolean mIsRefresh = false;
 
     public AListPresenter(V view) {
         mView = view;
-        onStart();
     }
 
-    protected void onStart() {
-        mRxManager = new RxManager();
-    }
-
+    @Override
     public void onDestroy() {
-        mRxManager.clear();
+        super.onDestroy();
         mView = null;
     }
 
@@ -89,7 +81,10 @@ public abstract class AListPresenter<V extends IListView, D> {
         return PAGE_SIZE + "";
     }
 
-    public RxManager getRxManager() {
-        return mRxManager;
+    public void onItemClick(View view, int position) {
+
+    }
+
+    public void onItemLongClick(View view, int position) {
     }
 }

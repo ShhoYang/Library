@@ -53,6 +53,14 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
     }
 
     @Override
+    public void onStop() {
+        super.onStop();
+        if (mPresenter != null) {
+            mPresenter.onStop();
+        }
+    }
+
+    @Override
     public void onDestroyView() {
         if (mPresenter != null) {
             mPresenter.onDestroy();
@@ -72,14 +80,14 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
         if (mPresenter != null) {
             mPresenter.mContext = mActivity;
         }
-        mRefreshLayout = (SmartRefreshLayout) $(R.id.refresh);
-        mRecyclerView = (RecyclerView) $(R.id.rv);
+        mRefreshLayout = (SmartRefreshLayout) $(R.id.base_refresh_view);
+        mRecyclerView = (RecyclerView) $(R.id.base_recycler_view);
         mRecyclerView.setFocusable(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         mMultiItemTypeAdapter = getAdapter();
         mAdapter = new EmptyWrapper(mMultiItemTypeAdapter);
         mEmptyView = (LinearLayout) LayoutInflater.from(mActivity).inflate(R.layout.view_empty, mRecyclerView, false);
-        mTvEmptyView = (TextView) $(mEmptyView,R.id.tv_empty);
+        mTvEmptyView = (TextView) $(mEmptyView, R.id.tv_empty);
         mIvEmpty = mEmptyView.findViewById(R.id.iv_empty);
         mAdapter.setEmptyView(mEmptyView);
         mRecyclerView.setAdapter(mAdapter);

@@ -20,7 +20,7 @@ public class ReceiveAddressPresenter extends ReceiveAddressContract.Presenter {
 
     @Override
     public void deleteRecAddress(RecAddress recAddress) {
-        mRxManager.add(new RxSubscriber<String>(Api.deleteRecAddress(recAddress.getId())) {
+        addRx2Destroy(new RxSubscriber<String>(Api.deleteRecAddress(recAddress.getId())) {
             @Override
             protected void _onNext(String s) {
                 mView.toast("删除成功");
@@ -31,7 +31,7 @@ public class ReceiveAddressPresenter extends ReceiveAddressContract.Presenter {
 
     @Override
     public void setDefaultRecAddress(RecAddress recAddress) {
-        mRxManager.add(new RxSubscriber<String>(Api.editRecAddress(recAddress.getId(), recAddress.getProvince(),
+        addRx2Destroy(new RxSubscriber<String>(Api.editRecAddress(recAddress.getId(), recAddress.getProvince(),
                 recAddress.getCity(), recAddress.getCounty(), recAddress.getTown(), recAddress.getFull_addr(),
                 recAddress.getName(), recAddress.getTel(), "1")) {
             @Override
@@ -56,7 +56,7 @@ public class ReceiveAddressPresenter extends ReceiveAddressContract.Presenter {
     @Override
     public void getPageData(boolean isRefresh) {
         super.getPageData(isRefresh);
-        mRxManager.add(new RxSubscriber<List<RecAddress>>(Api.getRecAddress()) {
+        addRx2Destroy(new RxSubscriber<List<RecAddress>>(Api.getRecAddress()) {
 
             @Override
             protected void _onNext(List<RecAddress> recAddresses) {

@@ -35,7 +35,7 @@ public class SettingPresenter extends SettingContract.Presenter {
 
     @Override
     public void getCacheSize() {
-        mRxManager.add(Observable.create(new ObservableOnSubscribe<String>() {
+        addRx2Destroy(Observable.create(new ObservableOnSubscribe<String>() {
             @Override
             public void subscribe(ObservableEmitter<String> e) throws Exception {
                 e.onNext(CacheManager.getCacheSize(mContext));
@@ -56,7 +56,7 @@ public class SettingPresenter extends SettingContract.Presenter {
 
     @Override
     public void clearCache() {
-        mRxManager.add(Observable.create(new ObservableOnSubscribe<Boolean>() {
+        addRx2Destroy(Observable.create(new ObservableOnSubscribe<Boolean>() {
             @Override
             public void subscribe(ObservableEmitter<Boolean> e) throws Exception {
                 e.onNext(CacheManager.clearCache(mContext));
@@ -83,7 +83,7 @@ public class SettingPresenter extends SettingContract.Presenter {
     @Override
     public void checkVersion() {
         mView.showDialog("正在检查新版本...");
-        mRxManager.add(new RxSubscriber<VersionInfo>(Api.checkApkVersion(), mView) {
+        addRx2Destroy(new RxSubscriber<VersionInfo>(Api.checkApkVersion(), mView) {
             @Override
             protected void _onNext(VersionInfo versionInfo) {
                 try {
@@ -117,7 +117,7 @@ public class SettingPresenter extends SettingContract.Presenter {
     @Override
     public void signOut() {
         mView.showDialog("正在退出...");
-        mRxManager.add(new RxSubscriber<String>(Api.signOut(), mView) {
+        addRx2Destroy(new RxSubscriber<String>(Api.signOut(), mView) {
             @Override
             protected void _onNext(String s) {
 

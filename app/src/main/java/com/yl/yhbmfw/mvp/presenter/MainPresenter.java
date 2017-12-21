@@ -43,7 +43,7 @@ public class MainPresenter extends MainContract.Presenter {
 
     @Override
     public void checkVersion() {
-        mRxManager.add(new RxSubscriber<VersionInfo>(Api.checkApkVersion()) {
+        addRx2Destroy(new RxSubscriber<VersionInfo>(Api.checkApkVersion()) {
             @Override
             protected void _onNext(VersionInfo versionInfo) {
                 try {
@@ -72,7 +72,7 @@ public class MainPresenter extends MainContract.Presenter {
         if (!App.getInstance().getConfig().isLogin() || TextUtils.isEmpty(App.getInstance().getConfig().getToken())) {
             return;
         }
-        mRxManager.add(new RxSubscriber<String>(Api.getUnreadMsgNum()) {
+        addRx2Destroy(new RxSubscriber<String>(Api.getUnreadMsgNum()) {
 
             @Override
             protected void _onNext(String s) {

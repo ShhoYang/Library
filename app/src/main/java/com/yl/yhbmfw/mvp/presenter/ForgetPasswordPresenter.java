@@ -43,7 +43,7 @@ public class ForgetPasswordPresenter extends ForgetPasswordContract.Presenter {
         mView.setBtnCodeEnable(false);
         startTimer();
         mView.showDialog("正在获取验证码...");
-       /* mRxManager.add(new RxSubscriber<String>(Api.getSMSCode(phone, AppUtils.getIMEI(mContext, phone), "resetpwd"), mView) {
+       /* addRx2Destroy(new RxSubscriber<String>(Api.getSMSCode(phone, AppUtils.getIMEI(mContext, phone), "resetpwd"), mView) {
 
             @Override
             protected void _onNext(String s) {
@@ -99,7 +99,7 @@ public class ForgetPasswordPresenter extends ForgetPasswordContract.Presenter {
             return;
         }
         mView.showDialog("正在提交...");
-        mRxManager.add(new RxSubscriber<String>(Api.forgetPassword(code, pwd), mView) {
+        addRx2Destroy(new RxSubscriber<String>(Api.forgetPassword(code, pwd), mView) {
 
             @Override
             protected void _onNext(String s) {
@@ -131,7 +131,7 @@ public class ForgetPasswordPresenter extends ForgetPasswordContract.Presenter {
 
                     }
                 });
-        mRxManager.add(mTimer);
+        addRx2Destroy(mTimer);
     }
 
     private void closeTimer() {

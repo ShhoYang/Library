@@ -10,7 +10,7 @@
     tools:context=".mvp.activity.AboutActivity">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab"
+        android:id="@id/base_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:background="#fff"
@@ -22,7 +22,7 @@
     <include layout="@layout/line_gray_up"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
+        android:id="@id/base_view_pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"/>

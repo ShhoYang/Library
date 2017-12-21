@@ -45,7 +45,7 @@ public class EventDetailsPresenter extends EventDetailsContract.Presenter {
         }
         mView.setEventInfo(mEventItem.getName(), "事件流水号: " + mEventItem.getCode(), "提交时间: " + mEventItem.getAdd_time());
         mView.showDialog();
-        mRxManager.add(new RxSubscriber<EventDetails>(Api.getEventDetails(mEventItem.getId()), mView) {
+        addRx2Destroy(new RxSubscriber<EventDetails>(Api.getEventDetails(mEventItem.getId()), mView) {
             @Override
             protected void _onNext(EventDetails eventDetails) {
                 arrangeData(eventDetails);
@@ -58,7 +58,7 @@ public class EventDetailsPresenter extends EventDetailsContract.Presenter {
         if (TextUtils.isEmpty(name)) {
             return;
         }
-        mRxManager.add(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(null, name), mView) {
+        addRx2Destroy(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(null, name), mView) {
 
             @Override
             protected void _onNext(List<EventTypeItem> eventTypeItems) {

@@ -6,6 +6,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -26,7 +27,7 @@ import com.zhy.adapter.recyclerview.wrapper.EmptyWrapper;
  * @author Yang Shihao
  */
 public abstract class BaseListActivity<P extends AListPresenter> extends BaseActivity
-        implements OnRefreshListener, OnLoadmoreListener {
+        implements OnRefreshListener, OnLoadmoreListener, MultiItemTypeAdapter.OnItemClickListener {
 
     private SmartRefreshLayout mRefreshLayout;
     private RecyclerView mRecyclerView;
@@ -50,6 +51,14 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if (mPresenter != null) {
+            mPresenter.onStop();
+        }
+    }
+
+    @Override
     protected void onDestroy() {
         if (mPresenter != null) {
             mPresenter.onDestroy();
@@ -69,10 +78,11 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
         if (mPresenter != null) {
             mPresenter.mContext = this;
         }
-        mRefreshLayout = (SmartRefreshLayout) $(R.id.refresh);
-        mRecyclerView = (RecyclerView) $(R.id.rv);
+        mRefreshLayout = (SmartRefreshLayout) $(R.id.base_refresh_view);
+        mRecyclerView = (RecyclerView) $(R.id.base_recycler_view);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mMultiItemTypeAdapter = getAdapter();
+        mMultiItemTypeAdapter.setOnItemClickListener(this);
         mAdapter = new EmptyWrapper(mMultiItemTypeAdapter);
         mEmptyView = (LinearLayout) LayoutInflater.from(this).inflate(R.layout.view_empty, mRecyclerView, false);
         mTvEmptyView = mEmptyView.findViewById(R.id.tv_empty);
@@ -213,6 +223,18 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
         mRefreshLayout.finishRefresh(0);
         mRefreshLayout.finishLoadmore(0, false);
         mTvEmptyView.setText(mLoadErrorText);
+    }
+
+    @Override
+    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+        if (mPresenter != null) {
+            mPresenter.onItemClick(view, position);
+        }
+    }
+
+    @Override
+    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+        return false;
     }
 
     @Override

@@ -26,7 +26,7 @@ public class WelcomePresenter extends WelcomeContract.Presenter {
         String phone = config.getPhone();
         String pwd = config.getPassword();
         if (config.isLogin() && !TextUtils.isEmpty(phone) && !TextUtils.isEmpty(pwd)) {
-            mRxManager.add(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone), "")) {
+            addRx2Destroy(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone), "")) {
                 @Override
                 protected void _onNext(User user) {
                     config.setToken(user.getToken());

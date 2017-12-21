@@ -3,10 +3,10 @@ package com.yl.yhbmfw.mvp.activity;
 import android.content.Intent;
 import android.text.TextUtils;
 
+import com.yl.library.base.activity.BaseListActivity;
 import com.yl.yhbmfw.Constant;
 import com.yl.yhbmfw.R;
 import com.yl.yhbmfw.adapter.EventTypeItemAdapter;
-import com.yl.library.base.activity.BaseListActivity;
 import com.yl.yhbmfw.mvp.contract.EventTypeItemListContract;
 import com.yl.yhbmfw.mvp.presenter.EventTypeItemListPresenter;
 import com.zhy.adapter.recyclerview.CommonAdapter;

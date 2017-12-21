@@ -6,7 +6,7 @@
                 android:orientation="vertical">
 
     <android.support.design.widget.TabLayout
-        android:id="@+id/tab"
+        android:id="@id/base_tab_layout"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:background="@color/white"
@@ -15,13 +15,13 @@
         app:tabTextColor="@color/white"/>
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/vp"
+        android:id="@id/base_view_pager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tab"/>
+        android:layout_below="@id/base_tab_layout"/>
 
     <LinearLayout
-        android:id="@+id/ll_empty"
+        android:id="@id/base_vp_ll_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
@@ -29,13 +29,13 @@
         android:visibility="visible">
 
         <ImageView
-            android:id="@+id/iv_empty"
+            android:id="@id/base_vp_iv_empty"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/no_data"/>
 
         <TextView
-            android:id="@+id/tv_empty"
+            android:id="@id/base_vp_tv_empty"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

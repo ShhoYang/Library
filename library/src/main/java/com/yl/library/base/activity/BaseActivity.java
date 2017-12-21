@@ -23,7 +23,7 @@ import com.yl.library.R;
 import com.yl.library.base.mvp.APresenter;
 import com.yl.library.utils.AppManager;
 import com.yl.library.utils.DisplayUtils;
-import com.yl.library.utils.StatusBarUtils;
+import com.yl.library.widget.StatusBarUtils;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -56,7 +56,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
         if (fullScreen()) {
             getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
             setContentView(getLayoutId());
-        } else if (!showActionBar()) {
+        } else if (!hasActionBar()) {
             setContentView(getLayoutId());
             StatusBarUtils.setColor(this, ContextCompat.getColor(this, R.color.theme_color));
         } else {
@@ -87,12 +87,20 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onStop() {
+        super.onStop();
         if (mDialog != null) {
             mDialog.dismiss();
             mDialog = null;
         }
+        if (mPresenter != null) {
+            mPresenter.onStop();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         if (mPresenter != null) {
             mPresenter.onDestroy();
             mPresenter = null;
@@ -157,7 +165,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
         return false;
     }
 
-    protected boolean showActionBar() {
+    protected boolean hasActionBar() {
         return true;
     }
 
@@ -178,7 +186,7 @@ public abstract class BaseActivity<P extends APresenter> extends AppCompatActivi
     /**
      * 设置title
      */
-    protected void setTitle(String title) {
+    public void setTitle(String title) {
         if (mTvTitle == null) {
             return;
         }

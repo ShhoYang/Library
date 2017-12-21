@@ -89,7 +89,7 @@ public class EventHandlePresenter extends EventHandleContract.Presenter {
         }
         mAuthInfo = mConfig.getAuthInfo();
         if (mAuthInfo == null) {
-            mRxManager.add(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
+            addRx2Destroy(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
                 @Override
                 protected void _onNext(AuthInfo info) {
                     mConfig.setAuthInfo(info);
@@ -337,7 +337,7 @@ public class EventHandlePresenter extends EventHandleContract.Presenter {
 
 
         if (TextUtils.isEmpty(mId)) { //新事件
-            mRxManager.add(new RxSubscriber<String>(Api.submitEvent(parts), mView) {
+            addRx2Destroy(new RxSubscriber<String>(Api.submitEvent(parts), mView) {
 
                 @Override
                 protected void _onNext(String s) {
@@ -346,7 +346,7 @@ public class EventHandlePresenter extends EventHandleContract.Presenter {
             });
         } else {  //驳回再次提交,要传被驳回事件的id
             parts.add(MultipartBody.Part.createFormData("eid", mId));
-            mRxManager.add(new RxSubscriber<String>(Api.applyRejectEvent(parts), mView) {
+            addRx2Destroy(new RxSubscriber<String>(Api.applyRejectEvent(parts), mView) {
 
                 @Override
                 protected void _onNext(String s) {
@@ -369,7 +369,7 @@ public class EventHandlePresenter extends EventHandleContract.Presenter {
         if (!mEventTypeItem.enableExpress()) {
             return;
         }
-        mRxManager.add(new RxSubscriber<List<RecAddress>>(Api.getRecAddress()) {
+        addRx2Destroy(new RxSubscriber<List<RecAddress>>(Api.getRecAddress()) {
 
             @Override
             protected void _onNext(List<RecAddress> recAddresses) {

@@ -65,7 +65,7 @@ public class FragmentMy extends BaseFragment<FgMyContract.Presenter>
     protected void initData() {
         mPresenter.getUserInfo();
         mPresenter.getAuthInfo();
-        mPresenter.getRxManager().add(RxBus.getInstance().register(EventRefresh.class).subscribe(new Consumer<EventRefresh>() {
+        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(EventRefresh.class).subscribe(new Consumer<EventRefresh>() {
             @Override
             public void accept(@NonNull EventRefresh eventRefresh) throws Exception {
                 if (eventRefresh.isRefresh(EventRefresh.REFRESH_USER_INFO)) {

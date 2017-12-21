@@ -74,7 +74,7 @@ public class ChangePasswordPresenter extends ChangePasswordContract.Presenter {
             return;
         }
         mView.showDialog("正在提交...");
-        mRxManager.add(new RxSubscriber<String>(Api.changePassword(phone, oldPwd, newPwd)) {
+        addRx2Destroy(new RxSubscriber<String>(Api.changePassword(phone, oldPwd, newPwd)) {
 
             @Override
             protected void _onNext(String s) {
@@ -93,7 +93,7 @@ public class ChangePasswordPresenter extends ChangePasswordContract.Presenter {
 
     private void login(String phone,String pwd) {
         /*mView.showDialog("正在重新登录...");
-        mRxManager.add(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone)),mView) {
+        addRx2Destroy(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone)),mView) {
             @Override
             protected void _onNext(User userHttpResult) {
                 User user = userHttpResult;

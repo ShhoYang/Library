@@ -68,7 +68,7 @@ public class MainActivity extends BaseActivity<MainContract.Presenter> implement
     }
 
     @Override
-    protected boolean showActionBar() {
+    protected boolean hasActionBar() {
         return false;
     }
 

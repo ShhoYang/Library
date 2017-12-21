@@ -28,7 +28,7 @@ public class SearchPresenter extends SearchContract.Presenter {
     @Override
     public void search(String keyWord) {
         mView.showDialog("正在搜索...");
-        mRxManager.add(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(null, keyWord), mView) {
+        addRx2Destroy(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(null, keyWord), mView) {
 
 
             @Override

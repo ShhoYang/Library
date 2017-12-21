@@ -51,7 +51,7 @@ public class FgMyPresenter extends FgMyContract.Presenter {
         if (mUser == null) {
             return;
         }
-        mRxManager.add(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
+        addRx2Destroy(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
             @Override
             protected void _onNext(AuthInfo authInfo) {
                 mConfig.setAuthInfo(authInfo);

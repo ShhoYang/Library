@@ -25,7 +25,7 @@ public class EventTypeItemListPresenter extends EventTypeItemListContract.Presen
     @Override
     public void getPageData(boolean isRefresh) {
         super.getPageData(isRefresh);
-        mRxManager.add(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(mType, null)) {
+        addRx2Destroy(new RxSubscriber<List<EventTypeItem>>(Api.getEventTypeList(mType, null)) {
 
             @Override
             protected void _onNext(List<EventTypeItem> eventTypeItems) {

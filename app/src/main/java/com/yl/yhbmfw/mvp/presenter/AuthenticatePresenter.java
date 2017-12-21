@@ -44,7 +44,7 @@ public class AuthenticatePresenter extends AuthenticateContract.Presenter {
 
     @Override
     public void getAuthInfo() {
-        mRxManager.add(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
+        addRx2Destroy(new RxSubscriber<AuthInfo>(Api.authenticateResult()) {
             @Override
             protected void _onNext(AuthInfo authInfo) {
                 arrange(authInfo);
@@ -102,7 +102,7 @@ public class AuthenticatePresenter extends AuthenticateContract.Presenter {
      */
     private void getRegionList(final String regionId) {
         if (mStreetList.size() == 0) {
-            mRxManager.add(new RxSubscriber<List<RegionNode>>(Api.getRegion(Constant.YU_HANG_CODE)) {
+            addRx2Destroy(new RxSubscriber<List<RegionNode>>(Api.getRegion(Constant.YU_HANG_CODE)) {
                 @Override
                 protected void _onNext(List<RegionNode> regionNodes) {
                     arrange(regionNodes);
@@ -154,7 +154,7 @@ public class AuthenticatePresenter extends AuthenticateContract.Presenter {
     @Override
     public void getRegionList() {
         if (mStreetList.size() == 0) {
-            mRxManager.add(new RxSubscriber<List<RegionNode>>(Api.getRegion(Constant.YU_HANG_CODE)) {
+            addRx2Destroy(new RxSubscriber<List<RegionNode>>(Api.getRegion(Constant.YU_HANG_CODE)) {
                 @Override
                 protected void _onNext(List<RegionNode> regionNodes) {
                     arrange(regionNodes);
@@ -236,7 +236,7 @@ public class AuthenticatePresenter extends AuthenticateContract.Presenter {
 
         mView.showDialog("正在提交...");
         Config config = App.getInstance().getConfig();
-        mRxManager.add(new RxSubscriber<String>(Api.authenticate(config.getPhone(), name, idCard,
+        addRx2Destroy(new RxSubscriber<String>(Api.authenticate(config.getPhone(), name, idCard,
                 mSelectedCommunity.getCode(), mHeadPath, mIdCardFrontPath, mIdCardAfterPath), mView) {
 
             @Override

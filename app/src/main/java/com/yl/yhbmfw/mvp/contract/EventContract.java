@@ -19,7 +19,5 @@ public interface EventContract {
         public Presenter(View view) {
             super(view);
         }
-
-        public abstract void getRejectEventData(int position);
     }
 }

@@ -65,7 +65,7 @@ public class FgMainPresenter extends FgMainContract.Presenter {
      */
     @Override
     public void getPageData(boolean isRefresh) {
-        mRxManager.add(new RxSubscriber<List<BannerItem>>(Api.getBanner()) {
+        addRx2Destroy(new RxSubscriber<List<BannerItem>>(Api.getBanner()) {
             @Override
             protected void _onNext(List<BannerItem> bannerItems) {
                 arrangeBannerDate(bannerItems);

@@ -53,7 +53,7 @@ public class LoginPresenter extends LoginContract.Presenter {
 
         mView.showDialog("正在登录...");
 
-        mRxManager.add(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone),
+        addRx2Destroy(new RxSubscriber<User>(Api.login(phone, pwd, AppUtils.getIMEI(mContext, phone),
                 ""), mView) {
 
             @Override

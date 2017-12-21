@@ -18,7 +18,5 @@ public interface FgMessageContract {
         public Presenter(View view) {
             super(view);
         }
-
-        public abstract void itemClick(int position);
     }
 }

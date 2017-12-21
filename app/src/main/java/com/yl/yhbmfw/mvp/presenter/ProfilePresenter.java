@@ -48,7 +48,7 @@ public class ProfilePresenter extends ProfileContract.Presenter {
     @Override
     public void submit() {
         mView.showDialog("正在提交...");
-        mRxManager.add(new RxSubscriber<String>(Api.updateUserInfo(mHeadPath, mView.getNickname(), mView.getSex(), mView.getBirthday(), mView.getEmail())) {
+        addRx2Destroy(new RxSubscriber<String>(Api.updateUserInfo(mHeadPath, mView.getNickname(), mView.getSex(), mView.getBirthday(), mView.getEmail())) {
 
             @Override
             protected void _onNext(String s) {
@@ -65,7 +65,7 @@ public class ProfilePresenter extends ProfileContract.Presenter {
 
     private void getUserInfo() {
         final Config config = App.getInstance().getConfig();
-        mRxManager.add(new RxSubscriber<User>(Api.login(config.getPhone(), config.getPassword(),
+        addRx2Destroy(new RxSubscriber<User>(Api.login(config.getPhone(), config.getPassword(),
                 AppUtils.getIMEI(mContext, config.getPhone()), ""), mView) {
             @Override
             protected void _onNext(User user) {

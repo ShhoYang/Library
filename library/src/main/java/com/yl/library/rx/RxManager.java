@@ -25,7 +25,6 @@ public class RxManager {
     public void clear() {
         if (!mDisposable.isDisposed()) {
             mDisposable.clear();
-
         }
     }
 }

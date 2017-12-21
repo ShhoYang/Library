@@ -109,7 +109,7 @@ public class EventHandleActivity extends BaseActivity<EventHandleContract.Presen
         showDialog();
         mPresenter.createForm(getIntent());
         mPresenter.getDefaultRecAddress();
-        mPresenter.getRxManager().add(RxBus.getInstance().register(EventRefresh.class).subscribe(new Consumer<EventRefresh>() {
+        mPresenter.getRxManager2Destroy().add(RxBus.getInstance().register(EventRefresh.class).subscribe(new Consumer<EventRefresh>() {
             @Override
             public void accept(@NonNull EventRefresh eventRefresh) throws Exception {
                 if (eventRefresh.isRefresh(EventRefresh.REFRESH_REC_ADDRESS)) {
