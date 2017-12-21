@@ -226,18 +226,6 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
     }
 
     @Override
-    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
-        if (mPresenter != null) {
-            mPresenter.onItemClick(view, position);
-        }
-    }
-
-    @Override
-    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
-        return false;
-    }
-
-    @Override
     public void onRefresh(RefreshLayout refreshlayout) {
         if (mPresenter != null) {
             mPresenter.getPageData(true);
@@ -249,5 +237,17 @@ public abstract class BaseListActivity<P extends AListPresenter> extends BaseAct
         if (mPresenter != null) {
             mPresenter.getPageData(false);
         }
+    }
+
+    @Override
+    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+        if (mPresenter != null) {
+            mPresenter.onItemClick(view, position);
+        }
+    }
+
+    @Override
+    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+        return false;
     }
 }

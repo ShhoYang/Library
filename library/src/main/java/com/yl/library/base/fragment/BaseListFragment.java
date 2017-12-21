@@ -6,6 +6,7 @@ import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -26,7 +27,8 @@ import com.zhy.adapter.recyclerview.wrapper.EmptyWrapper;
 /**
  * @author Yang Shihao
  */
-public abstract class BaseListFragment<P extends AListPresenter> extends BaseFragment implements OnRefreshListener, OnLoadmoreListener {
+public abstract class BaseListFragment<P extends AListPresenter> extends BaseFragment
+        implements OnRefreshListener, OnLoadmoreListener, MultiItemTypeAdapter.OnItemClickListener {
 
 
     protected SmartRefreshLayout mRefreshLayout;
@@ -85,6 +87,7 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
         mRecyclerView.setFocusable(false);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mActivity));
         mMultiItemTypeAdapter = getAdapter();
+        mMultiItemTypeAdapter.setOnItemClickListener(this);
         mAdapter = new EmptyWrapper(mMultiItemTypeAdapter);
         mEmptyView = (LinearLayout) LayoutInflater.from(mActivity).inflate(R.layout.view_empty, mRecyclerView, false);
         mTvEmptyView = (TextView) $(mEmptyView, R.id.tv_empty);
@@ -233,5 +236,17 @@ public abstract class BaseListFragment<P extends AListPresenter> extends BaseFra
         if (mPresenter != null) {
             mPresenter.getPageData(false);
         }
+    }
+
+    @Override
+    public void onItemClick(View view, RecyclerView.ViewHolder holder, int position) {
+        if (mPresenter != null) {
+            mPresenter.onItemClick(view, position);
+        }
+    }
+
+    @Override
+    public boolean onItemLongClick(View view, RecyclerView.ViewHolder holder, int position) {
+        return false;
     }
 }
