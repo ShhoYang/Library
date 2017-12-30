@@ -31,4 +31,17 @@ public class Constant {
     //设置WebView图片的宽度
     public static final String HTML_START = "<html><head_default><style type=\"text/css\"> img{width:100%;height:auto}</style></head_default><body>";
     public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
+//    public static final String HTML_END = "</body></html>";
 }
