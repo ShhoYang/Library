@@ -34,7 +34,8 @@
 
         <!-- 欢迎页 -->
         <activity
-            android:name=".mvp.activity.WelcomeActivity"
+            android:windowSoftInputMode="adjustResize"
+            android:name=".TestActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Welcome">
             <intent-filter>
@@ -118,9 +119,6 @@
             android:screenOrientation="portrait"/>
         <activity
             android:name=".mvp.activity.MessageDetailsActivity"
-            android:screenOrientation="portrait"/>
-        <activity
-            android:name=".mvp.TestActivity"
             android:screenOrientation="portrait"/>
     </application>
 
